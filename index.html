@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Item List</title>
+    <script src="server.js"></script>
+	<style>
+		body{font-family:Arial,Helvetica,sans-serif;margin:24px}
+		h1{margin-bottom:12px}
+		.controls{display:flex;gap:8px;margin-bottom:16px}
+		input[type="text"]{flex:1;padding:8px;font-size:14px}
+		button{padding:8px 12px;font-size:14px}
+		.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+		.item{padding:10px;border:1px solid #ddd;border-radius:6px;background:#fafafa}
+	</style>
+</head>
+<body>
+	<h1>Item List</h1>
+
+	<div class="controls">
+		<input id="newItem" type="text" placeholder="Add new item" aria-label="Add new item">
+		<button id="addBtn">Add</button>
+	</div>
+
+	<div id="list" class="grid" aria-live="polite">
+		<!-- items will be added here -->
+	</div>
+
+	<script>
+		const input = document.getElementById('newItem');
+		const btn = document.getElementById('addBtn');
+		const list = document.getElementById('list');
+
+		function createItemElement(text){
+			const el = document.createElement('div');
+			el.className = 'item';
+			el.textContent = text;
+			return el;
+		}
+
+		function addItem(){
+			const value = input.value.trim();
+			if(!value) return;
+			const el = createItemElement(value);
+			list.appendChild(el);
+			input.value = '';
+			input.focus();
+            postItem({name: value});
+		}
+
+        //get the items from fetchItems from server.js and display them in the list
+        async function loadItems() {
+            const items = await fetchItems();
+            items.forEach(item => {
+                const el = createItemElement(item.name);
+                list.appendChild(el);
+            });
+        }
+
+        // Load items on page load
+        loadItems();
+		btn.addEventListener('click', addItem);
+		input.addEventListener('keydown', e => { if(e.key === 'Enter') addItem(); });
+	</script>
+</body>
+</html>

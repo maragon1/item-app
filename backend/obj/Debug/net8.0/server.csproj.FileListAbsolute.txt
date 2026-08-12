@@ -1,0 +1,4 @@
+C:\Users\marka\OneDrive\Documents\Interview\item-app\server\obj\Debug\net8.0\server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marka\OneDrive\Documents\Interview\item-app\server\obj\Debug\net8.0\server.AssemblyInfoInputs.cache
+C:\Users\marka\OneDrive\Documents\Interview\item-app\server\obj\Debug\net8.0\server.AssemblyInfo.cs
+C:\Users\marka\OneDrive\Documents\Interview\item-app\server\obj\Debug\net8.0\server.csproj.CoreCompileInputs.cache

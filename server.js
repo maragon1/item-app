@@ -1,7 +1,7 @@
-//fetch the list of items from localhost:5000/items
+//fetch the list of items from localhost:3000/items
 const fetchItems = async () => {
   try {
-    const response = await fetch('http://localhost:5000/items');
+    const response = await fetch('http://localhost:3000/items');
     const data = await response.json();
     return data;
   } catch (error) {
@@ -10,10 +10,10 @@ const fetchItems = async () => {
   }
 };
 
-//post a new item to localhost:5000/items
+//post a new item to localhost:3000/items
 const postItem = async (item) => {
   try {
-    const response = await fetch('http://localhost:5000/items', {
+    const response = await fetch('http://localhost:3000/items', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

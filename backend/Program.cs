@@ -8,9 +8,9 @@ class Program
     {
         // Create an HttpListener
         HttpListener listener = new HttpListener();
-        listener.Prefixes.Add("http://localhost:5000/"); // Listening on port 5000
+        listener.Prefixes.Add("http://localhost:3000/"); // Listening on port 3000
         listener.Start();
-        Console.WriteLine("Server listening on http://localhost:5000/");
+        Console.WriteLine("Server listening on http://localhost:3000/");
 
 
         //create a list to store items
